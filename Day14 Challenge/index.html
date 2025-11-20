@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Fetch</title>
+    <style>
+        /* A little style so the image doesn't look sad */
+        #user-info {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        #user-info img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="fetch-user-btn">Get Random User</button>
+
+    <div id="user-info">
+        <p>Click the button to load a random user.</p>
+    </div>
+
+    <script>
+        async function fetchAndDisplayEmployees() {
+            const apiUrl = "https://dummy.restapiexample.com/api/v1/employees";
+
+            console.log(`Fetching data from: ${apiUrl}`);
+
+            try {
+                // 1. Make the request
+                const response = await fetch(apiUrl);
+
+                // Check if the request was successful (status code 200-299)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                // 2. Parse the JSON data
+                const data = await response.json();
+
+                // 3. Display the data on the console
+                console.log("--- Retrieved Employee Data ---");
+                console.log(data);
+                console.log("------------------------------");
+
+            } catch (error) {
+                console.error("An error occurred during the fetch operation:", error);
+            }
+        }
+
+        fetchAndDisplayEmployees();
+
+        const fetchButton = document.getElementById('fetch-user-btn');
+        const userInfoDiv = document.getElementById('user-info');
+        const apiUrl = "https://randomuser.me/api/";
+
+        async function fetchRandomUser() {
+            userInfoDiv.innerHTML = '<p>Loading...</p>';
+
+            try {
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                // The API returns an object with a 'results' array
+                const data = await response.json();
+                const user = data.results[0]; // Get the first (and only) user
+
+                // Extract relevant information
+                const name = `${user.name.first} ${user.name.last}`;
+                const email = user.email;
+                const pictureUrl = user.picture.large;
+
+                // Update the HTML content
+                userInfoDiv.innerHTML = `
+                    <img src="${pictureUrl}" alt="${name}'s profile picture">
+                    <h3>${name}</h3>
+                    <p><strong>Email:</strong> ${email}</p>
+                `;
+
+            } catch (error) {
+                console.error("Failed to fetch user:", error);
+                userInfoDiv.innerHTML = '<p style="color: red;">Error loading user data. Check the console for details.</p>';
+            }
+        }
+
+        // Attach the function to the button click event
+        fetchButton.addEventListener('click', fetchRandomUser);
+
+    </script>
+
+</body>
+
+</html>

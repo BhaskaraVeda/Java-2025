@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Flowers School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fw-bold" href="#">Spring Flowers School</a>
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Students</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" id="timeTableBtn">TimeTable</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container text-center mt-5">
+  <h2>Welcome to Spring Flowers School</h2>
+  <p class="lead">Manage student data and access your timetable easily.</p>
+  <button class="btn btn-primary mt-3" id="showTimeTable">View TimeTable</button>
+</div>
+
+<div class="container timetable" id="timetableSection">
+  <h3 class="text-center mb-4">Class Time Table</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-primary">
+        <tr>
+          <th>Day</th>
+          <th>9:00 - 10:00</th>
+          <th>10:00 - 11:00</th>
+          <th>11:15 - 12:15</th>
+          <th>1:00 - 2:00</th>
+          <th>2:00 - 3:00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Monday</td><td>Maths</td><td>Science</td><td>English</td><td>PT</td><td>Computer</td></tr>
+        <tr><td>Tuesday</td><td>English</td><td>Social</td><td>Maths</td><td>Science</td><td>Library</td></tr>
+        <tr><td>Wednesday</td><td>Science</td><td>Computer</td><td>Maths</td><td>PT</td><td>English</td></tr>
+        <tr><td>Thursday</td><td>Maths</td><td>Social</td><td>Science</td><td>English</td><td>Library</td></tr>
+        <tr><td>Friday</td><td>English</td><td>Maths</td><td>PT</td><td>Science</td><td>Computer</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  © 2025 Spring Flowers School | Designed with Bootstrap
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('showTimeTable').onclick = function() {
+    document.getElementById('timetableSection').classList.toggle('show');
+  };
+  document.getElementById('timeTableBtn').onclick = function() {
+    document.getElementById('timetableSection').classList.toggle('show');
+  };
+</script>
+
+</body>
+</html>

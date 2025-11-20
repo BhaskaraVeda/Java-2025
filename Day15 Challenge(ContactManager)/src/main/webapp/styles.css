@@ -1,0 +1,23 @@
+@charset "UTF-8";
+body { font-family: Arial; background: #f2f2f2; }
+.container { width: 60%; margin: auto; background: #fff; padding: 20px; border-radius: 10px; margin-top: 25px; }
+
+h1, h2 { text-align: center; }
+
+.form-box { background: #fafafa; padding: 20px; margin-bottom: 25px; border-radius: 10px; }
+
+input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 6px; border: 1px solid #ccc; }
+
+button { width: 100%; padding: 12px; background: #0066ff; color: white; border: none; border-radius: 8px; cursor: pointer; }
+button:hover { background: #004ccc; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th { background: #0066ff; color: white; padding: 10px; }
+td { padding: 10px; border-bottom: 1px solid #ddd; text-align: center; }
+
+.edit-btn { background: #007bff; padding: 5px 10px; color: white; border-radius: 5px; text-decoration: none; }
+.delete-btn { background: red; padding: 5px 10px; color: white; border-radius: 5px; text-decoration: none; }
+
+.msg { padding: 10px; margin-bottom: 10px; border-radius: 5px; text-align: center; }
+.success { background: #c8f7c5; color: #2e7d32; }
+.error { background: #ffe6e6; color: #c62828; }
